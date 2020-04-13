@@ -11,7 +11,8 @@ export class ApiService {
 
   @Input() movieRating: any = null;
 
-  baseUrl = 'http://127.0.0.1:8000/';
+  // baseUrl = 'http://127.0.0.1:8000/';
+  baseUrl = 'https://movier-rater.herokuapp.com/';
   apiUrl = this.baseUrl + 'api/';
   moviesUrl = this.apiUrl + 'movies/';
   signUpUrl = this.apiUrl + 'users/';
