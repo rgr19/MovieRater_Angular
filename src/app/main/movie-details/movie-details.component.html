@@ -1,0 +1,28 @@
+<h2>Movies Details:
+  <fa name="cog" animation="spin"></fa>
+</h2>
+
+<div *ngIf="movie">
+  <h3> Title: {{ movie.title }} </h3>
+  <p> avg rating:
+    <ng-container *ngFor="let star of [].constructor(5); let i = index">
+      <fa name="star" [ngClass]="{'orange' : movie.avg_rating > i }"></fa>
+    </ng-container>
+    ({{ movie.no_of_ratings }})
+  </p>
+  <p> Description: {{ movie.description }}</p>
+
+  <div id="rate-container">
+    <h3> Rate movie: </h3>
+    <fa *ngFor="let rate of [1,2,3,4,5]" name="star"
+        (click)="rateClick(rate)"
+        (mouseenter)="rateHover(rate)"
+        (mouseleave)="rateHovered = 0"
+        [ngClass]="{'purple' : rateHovered >= rate }"
+    >
+    </fa>
+  </div>
+
+</div>
+
+

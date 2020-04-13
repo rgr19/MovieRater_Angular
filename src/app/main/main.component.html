@@ -1,0 +1,27 @@
+<h1>MAIN works!</h1>
+
+<div class="layout">
+  <app-movie-list
+    [movies]="movies"
+    (movieSelector)="selectMovie($event)"
+    (movieEditor)="editMovie($event)"
+    (movieCreator)="createMovie()"
+    (movieDeleter)="deleteMovie($event)"
+  ></app-movie-list>
+  <div>
+    <app-movie-details
+      [movie]="selectedMovie"
+      (movieSelector)="selectMovie($event)"
+    ></app-movie-details>
+    <app-movie-form
+      *ngIf="editedMovie"
+      [movie]="editedMovie"
+      (movieCreator)="createMovie($event)"
+      (movieUpdater)="updateMovie($event)"
+    ></app-movie-form>
+  </div>
+<div id="fixed-bottom-right">
+<button (click)="logout()">Logout</button>
+</div>
+
+</div>

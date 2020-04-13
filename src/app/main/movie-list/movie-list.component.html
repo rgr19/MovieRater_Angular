@@ -1,0 +1,12 @@
+<h2>Movies List: </h2>
+
+<div *ngFor="let idx of movies.indexCopy()" class="movie-item">
+  <h3 (click)="movieClicked(idx)">{{ getMovieTitle(idx) }}</h3>
+  <fa name="edit" (click)="editMovie(idx)"></fa>
+  <fa name="trash" (click)="deleteMovie(idx)"></fa>
+</div>
+<button
+  (click)="newMovie()"
+>New Movie
+</button>
+

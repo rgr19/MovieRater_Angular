@@ -1,0 +1,18 @@
+<h2>Movie Form:</h2>
+<form
+      [formGroup]="movieForm"
+      (submit)="saveForm()"
+>
+  <label>Title:<br>
+    <input type='text' formControlName="title">
+  </label><br>
+
+  <label>Description:<br>
+    <textarea formControlName="description"></textarea>
+  </label><br>
+  <button type="submit" [disabled]="formDisabled()">
+    <span *ngIf="movieId">Update</span>
+    <span *ngIf="!movieId">Create</span>
+  </button>
+
+</form>

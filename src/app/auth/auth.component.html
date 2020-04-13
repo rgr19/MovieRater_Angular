@@ -1,0 +1,26 @@
+<h2>
+<span *ngIf="registerMode" (click)="registerMode = false">
+  Sign Up (click to Sign In)
+</span>
+  <span *ngIf="!registerMode" (click)="registerMode = true">
+  Sign In (click to Sign Up)
+</span>
+</h2><br>
+
+<form
+  [formGroup]="authForm"
+  (submit)="authenticate()"
+>
+  <label>Username:<br>
+    <input type='text' formControlName="username"><br>
+  </label><br>
+
+  <label>Password:<br>
+    <input type='password' formControlName="password"><br>
+  </label><br>
+  <button type="submit" [disabled]="formDisabled()">
+    <span *ngIf="!registerMode">Login</span>
+    <span *ngIf="registerMode">Register</span>
+  </button>
+</form>
+
